@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards - Comparatives & Superlatives em Inglês</title>
+    <style>
+        :root {
+            --comparative: #2563eb;
+            --superlative: #22c55e;
+            --irregular: #f97316;
+            --practice: #8b5cf6;
+            --highlight: #dc2626;
+            --card-bg: #ffffff;
+            --page-bg: #f8fafc;
+            --text: #1f2937;
+            --muted: #6b7280;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--page-bg);
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            line-height: 1.6;
+            color: var(--text);
+        }
+        
+        h1 {
+            color: var(--text);
+            text-align: center;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 15px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: var(--muted);
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+            justify-content: center;
+        }
+        
+        .category-btn {
+            padding: 10px 18px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            color: white;
+        }
+        
+        .category-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .comp-btn { background-color: var(--comparative); }
+        .super-btn { background-color: var(--superlative); }
+        .irregular-btn { background-color: var(--irregular); }
+        .practice-btn { background-color: var(--practice); }
+        .all-btn { background-color: #4b5563; }
+        
+        .flashcards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .flashcard {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-left: 6px solid;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .flashcard:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .comparative { border-color: var(--comparative); }
+        .superlative { border-color: var(--superlative); }
+        .irregular { border-color: var(--irregular); }
+        .practice { border-color: var(--practice); }
+        
+        .flashcard-header {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .flashcard-header .left {
+            display: flex;
+            align-items: center;
+        }
+        
+        .flashcard-header .emoji {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .play-group {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .play-btn {
+            border: none;
+            padding: 5px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.85rem;
+            color: white;
+            transition: all 0.2s;
+        }
+        
+        .play-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        
+        .play-btn.us { background: #dc2626; }
+        .play-btn.uk { background: #1e40af; }
+        
+        .content {
+            display: none;
+        }
+        
+        .content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .question {
+            color: var(--text);
+            font-weight: 500;
+            margin-bottom: 15px;
+            background: #f1f5f9;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 1.05rem;
+        }
+        
+        .answer {
+            background: #dbeafe;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 3px solid var(--comparative);
+        }
+        
+        .explanation {
+            background: #dcfce7;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 3px solid var(--superlative);
+        }
+        
+        .follow {
+            background: #f3e8ff;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 3px solid var(--practice);
+        }
+        
+        .examples {
+            background: #fffbeb;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 3px solid var(--irregular);
+        }
+        
+        .practice-content {
+            background: #f0f9ff;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 3px solid var(--practice);
+        }
+        
+        .adjective {
+            font-weight: 700;
+            color: #1e40af;
+            background: #e0e7ff;
+            padding: 2px 6px;
+            border-radius: 4px;
+            display: inline-block;
+            margin: 2px 0;
+        }
+        
+        .check {
+            color: #16a34a;
+            margin-right: 5px;
+        }
+        
+        .cross {
+            color: #dc2626;
+            margin-right: 5px;
+        }
+        
+        .example-item {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .example-item:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--muted);
+        }
+        
+        .practice-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            background: #fafafa;
+            border-radius: 6px;
+            border-left: 3px solid var(--practice);
+        }
+        
+        .rule-label {
+            display: inline-block;
+            padding: 2px 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+            font-weight: 600;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .quiz-options {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .quiz-options li {
+            margin-bottom: 8px;
+            padding: 10px;
+            background: #f8fafc;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 2px solid #e2e8f0;
+        }
+        
+        .quiz-options li:hover {
+            background: #e2e8f0;
+            transform: translateY(-2px);
+        }
+        
+        .correct {
+            background: #bbf7d0 !important;
+            border-color: #16a34a !important;
+        }
+        
+        .incorrect {
+            background: #fecaca !important;
+            border-color: #dc2626 !important;
+        }
+        
+        .practice-question {
+            font-weight: 600;
+            color: var(--practice);
+            margin-bottom: 8px;
+        }
+        
+        .practice-answer {
+            padding: 10px;
+            background: #dbeafe;
+            border-radius: 6px;
+            margin-top: 8px;
+            display: none;
+        }
+        
+        .practice-answer.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        .show-answer {
+            background: var(--practice);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 8px;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        
+        .show-answer:hover {
+            background: #7c3aed;
+        }
+        
+        .tip {
+            background: #fef3c7;
+            padding: 12px;
+            border-radius: 6px;
+            margin: 10px 0;
+            font-size: 0.95rem;
+            border-left: 3px solid #f59e0b;
+        }
+        
+        .ipa {
+            font-size: 0.9rem;
+            color: var(--muted);
+            background: #f1f5f9;
+            padding: 4px 8px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-left: 10px;
+            font-family: monospace;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .controls label {
+            font-weight: 600;
+            color: var(--text);
+        }
+        
+        .controls input[type="range"] {
+            width: 180px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: var(--muted);
+            font-size: 0.9rem;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        @media (max-width: 768px) {
+            .flashcards-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .categories {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .category-btn {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>📚 Flashcards - Comparatives & Superlatives</h1>
+    <div class="subtitle">Domine as formas comparativas e superlativas em inglês com exemplos reais e exercícios práticos</div>
+    
+    <div class="controls">
+        <label for="voiceRate">Velocidade do áudio:</label>
+        <input id="voiceRate" type="range" min="0.6" max="1.4" step="0.05" value="1.0">
+    </div>
+    
+    <div class="categories">
+        <button class="category-btn comp-btn" onclick="filterCards('comparative')">Comparatives</button>
+        <button class="category-btn super-btn" onclick="filterCards('superlative')">Superlatives</button>
+        <button class="category-btn irregular-btn" onclick="filterCards('irregular')">Formas Irregulares</button>
+        <button class="category-btn practice-btn" onclick="filterCards('practice')">Exercícios Práticos</button>
+        <button class="category-btn all-btn" onclick="filterCards('all')">Mostrar Todos</button>
+    </div>
+    
+    <div class="flashcards-container" id="flashcards-container">
+        <!-- Flashcard 1: Regras Comparatives -->
+        <div class="flashcard comparative" onclick="revealContent(this)">
+            <div class="flashcard-header">
+                <div class="left">
+                    <span class="emoji">📏</span>
+                    Regras dos Comparatives
+                </div>
+                <div class="play-group">
+                    <button class="play-btn us" onclick="playTTS(event, 'Comparative adjectives are used to compare differences between two objects. For short adjectives, add -er. For long adjectives, use more before the adjective.')">US 🔊</button>
+                    <button class="play-btn uk" onclick="playTTS(event, 'Comparative adjectives are used to compare differences between two objects. For short adjectives, add -er. For long adjectives, use more before the adjective.', 'uk')">UK 🔊</button>
+                </div>
+            </div>
+            <div class="content">
+                <div class="question">Como formar comparatives em inglês?</div>
+                <div class="content">
+                    <div class="answer">
+                        <p><span class="rule-label">Regra 1:</span> Adjetivos curtos (1-2 sílabas): adicione <span class="adjective">-er</span></p>
+                        <p><span class="adjective">tall → taller</span> <span class="ipa">/ˈtɔːlər/</span></p>
+                        <p><span class="adjective">fast → faster</span> <span class="ipa">/ˈfæstər/</span></p>
+                        
+                        <p><span class="rule-label">Regra 2:</span> Adjetivos longos (3+ sílabas): use <span class="adjective">more</span> antes</p>
+                        <p><span class="adjective">beautiful → more beautiful</span></p>
+                        <p><span class="adjective">expensive → more expensive</span> <span class="ipa">/mɔːr ɪkˈspensɪv/</span></p>
+                    </div>
+                    <div class="content">
+                        <div class="explanation">
+                            <p><span class="check">✅</span> Use <strong>than</strong> para comparar: "She is taller <strong>than</strong> me."</p>
+                            <p><span class="check">✅</span> Adjetivos terminados em <strong>-y</strong>: mude para <strong>-ier</strong></p>
+                            <p><span class="adjective">happy → happier</span> <span class="ipa">/ˈhæpiər/</span></p>
+                            <p><span class="check">✅</span> Adjetivos com uma vogal + consoante final: dobre a consoante</p>
+                            <p><span class="adjective">big → bigger</span> <span class="ipa">/ˈbɪɡər/</span></p>
+                        </div>
+                        <div class="content">
+                            <div class="examples">
+                                <p><strong>Exemplos:</strong></p>
+                                <div class="example-item">
+                                    "My car is <span class="adjective">faster</span> than yours."
+                                </div>
+                                <div class="example-item">
+                                    "This book is <span class="adjective">more interesting</span> than that one."
+                                </div>
+                                <div class="example-item">
+                                    "Today is <span class="adjective">sunnier</span> than yesterday."
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Flashcard 2: Regras Superlatives -->
+        <div class="flashcard superlative" onclick="revealContent(this)">
+            <div class="flashcard-header">
+                <div class="left">
+                    <span class="emoji">🏆</span>
+                    Regras dos Superlatives
+                </div>
+                <div class="play-group">
+                    <button class="play-btn us" onclick="playTTS(event, 'Superlative adjectives are used to compare three or more objects. For short adjectives, add -est. For long adjectives, use the most before the adjective.')">US 🔊</button>
+                    <button class="play-btn uk" onclick="playTTS(event, 'Superlative adjectives are used to compare three or more objects. For short adjectives, add -est. For long adjectives, use the most before the adjective.', 'uk')">UK 🔊</button>
+                </div>
+            </div>
+            <div class="content">
+                <div class="question">Como formar superlatives em inglês?</div>
+                <div class="content">
+                    <div class="answer">
+                        <p><span class="rule-label">Regra 1:</span> Adjetivos curtos (1-2 sílabas): adicione <span class="adjective">-est</span></p>
+                        <p><span class="adjective">tall → the tallest</span> <span class="ipa">/ˈtɔːlɪst/</span></p>
+                        <p><span class="adjective">fast → the fastest</span></p>
+                        
+                        <p><span class="rule-label">Regra 2:</span> Adjetivos longos (3+ sílabas): use <span class="adjective">the most</span> antes</p>
+                        <p><span class="adjective">beautiful → the most beautiful</span></p>
+                        <p><span class="adjective">famous → the most famous</span> <span class="ipa">/moʊst ˈfeɪməs/</span></p>
+                    </div>
+                    <div class="content">
+                        <div class="explanation">
+                            <p><span class="check">✅</span> Sempre use <strong>the</strong> antes do superlativo</p>
+                            <p><span class="check">✅</span> Use <strong>in</strong> para lugares: "the tallest building <strong>in</strong> the world"</p>
+                            <p><span class="check">✅</span> Adjetivos terminados em <strong>-y</strong>: mude para <strong>-iest</strong></p>
+                            <p><span class="adjective">happy → the happiest</span></p>
+                            <p><span class="check">✅</span> Adjetivos com uma vogal + consoante final: dobre a consoante</p>
+                            <p><span class="adjective">big → the biggest</span></p>
+                        </div>
+                        <div class="content">
+                            <div class="examples">
+                                <p><strong>Exemplos:</strong></p>
+                                <div class="example-item">
+                                    "Mount Everest is <span class="adjective">the highest</span> mountain in the world."
+                                </div>
+                                <div class="example-item">
+                                    "This is <span class="adjective">the most expensive</span> restaurant in town."
+                                </div>
+                                <div class="example-item">
+                                    "She is <span class="adjective">the funniest</span> person I know."
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Flashcard 3: Formas Irregulares -->
+        <div class="flashcard irregular" onclick="revealContent(this)">
+            <div class="flashcard-header">
+                <div class="left">
+                    <span class="emoji">⚠️</span>
+                    Formas Irregulares
+                </div>
+                <div class="play-group">
+                    <button class="play-btn us" onclick="playTTS(event, 'Some adjectives have irregular comparative and superlative forms. For example: good, better, best. Bad, worse, worst.')">US 🔊</button>
+                    <button class="play-btn uk" onclick="playTTS(event, 'Some adjectives have irregular comparative and superlative forms. For example: good, better, best. Bad, worse, worst.', 'uk')">UK 🔊</button>
+                </div>
+            </div>
+            <div class="content">
+                <div class="question">Quais são as formas irregulares mais importantes?</div>
+                <div class="content">
+                    <div class="answer">
+                        <p><span class="adjective">good → better → the best</span></p>
+                        <p><span class="ipa">/ɡʊd/ → /ˈbetər/ → /best/</span></p>
+                        
+                        <p><span class="adjective">bad → worse → the worst</span></p>
+                        <p><span class="ipa">/bæd/ → /wɜːrs/ → /wɜːrst/</span></p>
+                        
+                        <p><span class="adjective">far → farther/further → the farthest/furthest</span></p>
+                        <p><span class="ipa">/fɑːr/ → /ˈfɑːrðər/ /ˈfɜːrðər/ → /ˈfɑːrðɪst/ /ˈfɜːrðɪst/</span></p>
+                    </div>
+                    <div class="content">
+                        <div class="explanation">
+                            <p><span class="check">✅</span> <strong>Better</strong> e <strong>best</strong> são usados para qualidade</p>
+                            <p><span class="check">✅</span> <strong>Worse</strong> e <strong>worst</strong> são usados para coisas ruins</p>
+                            <p><span class="check">✅</span> <strong>Farther</strong> é para distância física, <strong>further</strong> para abstrata</p>
+                            <p><span class="check">✅</span> <strong>Little</strong> → <strong>less</strong> → <strong>the least</strong> (para quantidade)</p>
+                        </div>
+                        <div class="content">
+                            <div class="examples">
+                                <p><strong>Exemplos:</strong></p>
+                                <div class="example-item">
+                                    "Your idea is <span class="adjective">better</span> than mine."
+                                </div>
+                                <div class="example-item">
+                                    "This is <span class="adjective">the worst</span> movie I've ever seen."
+                                </div>
+                                <div class="example-item">
+                                    "We need <span class="adjective">further</span> information to decide."
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Flashcard 4: Comparatives - Exemplos Práticos -->
+        <div class="flashcard comparative" onclick="revealContent(this)">
+            <div class="flashcard-header">
+                <div class="left">
+                    <span class="emoji">💬</span>
+                    Comparatives - Exemplos
+                </div>
+                <div class="play-group">
+                    <button class="play-btn us" onclick="playTTS(event, 'Who is taller, you or your best friend?')">US 🔊</button>
+                    <button class="play-btn uk" onclick="playTTS(event, 'Who is taller, you or your best friend?', 'uk')">UK 🔊</button>
+                </div>
+            </div>
+            <div class="content">
+                <div class="question">Who is taller, you or your best friend?</div>
+                <div class="content">
+                    <div class="answer">I am taller than my best friend.</div>
+                    <div class="content">
+                        <div class="explanation">Usamos "taller than" para comparar altura entre duas pessoas.</div>
+                        <div class="content">
+                            <div class="follow">Follow-up: Há muita diferença de altura entre vocês?</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Flashcard 5: Superlatives - Exemplos Práticos -->
+        <div class="flashcard superlative" onclick="revealContent(this)">
+            <div class="flashcard-header">
+                <div class="left">
+                    <span class="emoji">💬</span>
+                    Superlatives - Exemplos
+                </div>
+                <div class="play-group">
+                    <button class="play-btn us" onclick="playTTS(event, 'Who is the tallest person in your family?')">US 🔊</button>
+                    <button class="play-btn uk" onclick="playTTS(event, 'Who is the tallest person in your family?', 'uk')">UK 🔊</button>
+                </div>
+            </div>
+            <div class="content">
+                <div class="question">Who is the tallest person in your family?</div>
+                <div class="content">
+                    <div class="answer">My brother is the tallest person in my family.</div>
+                    <div class="content">
+                        <div class="explanation">Use "the + -est" para o superlativo quando comparamos três ou mais pessoas/coisas.</div>
+                        <div class="content">
+                            <div class="follow">Follow-up: Qual é a altura dele?</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Flashcard 6: Dicas e Exceções -->
+        <div class="flashcard irregular" onclick="revealContent(this)">
+            <div class="flashcard-header">
+                <div class="left">
+                    <span class="emoji">💡</span>
+                    Dicas e Exceções
+                </div>
+            </div>
+            <div class="content">
+                <div class="question">Quais são as dicas mais importantes?</div>
+                <div class="content">
+                    <div class="tip">
+                        <p><strong>1. Adjetivos de duas sílabas:</strong> Alguns podem usar ambas as formas.</p>
+                        <p><span class="adjective">clever → cleverer/more clever → cleverest/most clever</span></p>
+                        
+                        <p><strong>2. Comparando duas coisas iguais:</strong> Use "as...as"</p>
+                        <p>"She is <strong>as tall as</strong> her sister."</p>
+                        
+                        <p><strong>3. "Than" vs "Then":</strong> Não confunda!</p>
+                        <p><span class="adjective">Than</span> = para comparações | <span class="adjective">Then</span> = depois, então</p>
+                        
+                        <p><strong>4. Pronúncia:</strong> Preste atenção na pronúncia do "-er" e "-est"</p>
+                        <p><span class="adjective">long /lɒŋ/ → longer /ˈlɒŋɡər/ → longest /ˈlɒŋɡɪst/</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Flashcard 7: Prática - Identificação -->
+        <div class="flashcard practice" onclick="revealContent(this)">
+            <div class="flashcard-header">
+                <span class="emoji">📝</span>
+                Prática - Identificação
+            </div>
+            <div class="content">
+                <div class="question">Escolha a forma correta para cada frase</div>
+                <div class="content">
+                    <div class="practice-content">
+                        <div class="practice-item">
+                            <div class="practice-question">1. "My house is ____ than yours."</div>
+                            <ul class="quiz-options">
+                                <li onclick="checkAnswer(this, 'bigger')">bigger</li>
+                                <li onclick="checkAnswer(this, 'biggest')">biggest</li>
+                                <li onclick="checkAnswer(this, 'big')">big</li>
+                            </ul>
+                            <div class="practice-answer"><span class="check">✅</span> <strong>bigger</strong> - Comparativo de "big": maior.</div>
+                        </div>
+                        <div class="practice-item">
+                            <div class="practice-question">2. "This is the ____ movie I have ever seen."</div>
+                            <ul class="quiz-options">
+                                <li onclick="checkAnswer(this, 'best')">best</li>
+                                <li onclick="checkAnswer(this, 'better')">better</li>
+                                <li onclick="checkAnswer(this, 'good')">good</li>
+                            </ul>
+                            <div class="practice-answer"><span class="check">✅</span> <strong>best</strong> - Superlativo irregular de "good": o melhor.</div>
+                        </div>
+                        <div class="practice-item">
+                            <div class="practice-question">3. "She is ____ than her sister."</div>
+                            <ul class="quiz-options">
+                                <li onclick="checkAnswer(this, 'taller')">taller</li>
+                                <li onclick="checkAnswer(this, 'tallest')">tallest</li>
+                                <li onclick="checkAnswer(this, 'tall')">tall</li>
+                            </ul>
+                            <div class="practice-answer"><span class="check">✅</span> <strong>taller</strong> - Comparativo de "tall": mais alta.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Flashcard 8: Prática - Preenchimento -->
+        <div class="flashcard practice" onclick="revealContent(this)">
+            <div class="flashcard-header">
+                <span class="emoji">✏️</span>
+                Prática - Preenchimento
+            </div>
+            <div class="content">
+                <div class="question">Complete as frases com a forma correta</div>
+                <div class="content">
+                    <div class="practice-content">
+                        <div class="practice-item">
+                            <div class="practice-question">1. "Today is ____ (cold) than yesterday."</div>
+                            <button class="show-answer" onclick="toggleAnswer(this)">Mostrar Resposta</button>
+                            <div class="practice-answer"><span class="check">✅</span> <strong>colder</strong> - "Today is colder than yesterday."</div>
+                        </div>
+                        <div class="practice-item">
+                            <div class="practice-question">2. "He is the ____ (strong) player in the team."</div>
+                            <button class="show-answer" onclick="toggleAnswer(this)">Mostrar Resposta</button>
+                            <div class="practice-answer"><span class="check">✅</span> <strong>strongest</strong> - "He is the strongest player in the team."</div>
+                        </div>
+                        <div class="practice-item">
+                            <div class="practice-question">3. "This exam is ____ (easy) than the last one."</div>
+                            <button class="show-answer" onclick="toggleAnswer(this)">Mostrar Resposta</button>
+                            <div class="practice-answer"><span class="check">✅</span> <strong>easier</strong> - "This exam is easier than the last one."</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Flashcard 9: Prática - Tradução -->
+        <div class="flashcard practice" onclick="revealContent(this)">
+            <div class="flashcard-header">
+                <span class="emoji">🌐</span>
+                Prática - Tradução
+            </div>
+            <div class="content">
+                <div class="question">Traduza as frases usando comparatives/superlatives</div>
+                <div class="content">
+                    <div class="practice-content">
+                        <div class="practice-item">
+                            <div class="practice-question">1. "Londres é maior do que Paris."</div>
+                            <button class="show-answer" onclick="toggleAnswer(this)">Mostrar Resposta</button>
+                            <div class="practice-answer"><span class="check">✅</span> "London is <strong>bigger than</strong> Paris."</div>
+                        </div>
+                        <div class="practice-item">
+                            <div class="practice-question">2. "Esta é a pessoa mais famosa do meu país."</div>
+                            <button class="show-answer" onclick="toggleAnswer(this)">Mostrar Resposta</button>
+                            <div class="practice-answer"><span class="check">✅</span> "This is <strong>the most famous</strong> person in my country."</div>
+                        </div>
+                        <div class="practice-item">
+                            <div class="practice-question">3. "O ouro é mais caro do que a prata."</div>
+                            <button class="show-answer" onclick="toggleAnswer(this)">Mostrar Resposta</button>
+                            <div class="practice-answer"><span class="check">✅</span> "Gold is <strong>more expensive than</strong> silver."</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Flashcard 10: Quiz Avançado -->
+        <div class="flashcard practice" onclick="revealContent(this)">
+            <div class="flashcard-header">
+                <span class="emoji">🧠</span>
+                Quiz Avançado
+            </div>
+            <div class="content">
+                <div class="question">Teste seu conhecimento com questões desafiadoras</div>
+                <div class="content">
+                    <div class="practice-content">
+                        <div class="practice-item">
+                            <div class="practice-question">1. "My dog is ____ than my cat." (amigável)</div>
+                            <ul class="quiz-options">
+                                <li onclick="checkAnswer(this, 'friendlier')">friendlier</li>
+                                <li onclick="checkAnswer(this, 'more friendly')">more friendly</li>
+                                <li onclick="checkAnswer(this, 'friendliest')">friendliest</li>
+                                <li onclick="checkAnswer(this, 'both a and b')">ambos A e B</li>
+                            </ul>
+                            <div class="practice-answer"><span class="check">✅</span> <strong>ambos A e B</strong> - "friendlier" e "more friendly" são ambos corretos.</div>
+                        </div>
+                        <div class="practice-item">
+                            <div class="practice-question">2. "She has a ____ smile." (bonito)</div>
+                            <ul class="quiz-options">
+                                <li onclick="checkAnswer(this, 'beautiful')">beautiful</li>
+                                <li onclick="checkAnswer(this, 'more beautiful')">more beautiful</li>
+                                <li onclick="checkAnswer(this, 'most beautiful')">most beautiful</li>
+                            </ul>
+                            <div class="practice-answer"><span class="check">✅</span> <strong>beautiful</strong> - Não há comparação, então use a forma básica.</div>
+                        </div>
+                        <div class="practice-item">
+                            <div class="practice-question">3. "This was the ____ holiday we ever had." (relaxante)</div>
+                            <ul class="quiz-options">
+                                <li onclick="checkAnswer(this, 'most relaxing')">most relaxing</li>
+                                <li onclick="checkAnswer(this, 'more relaxing')">more relaxing</li>
+                                <li onclick="checkAnswer(this, 'relaxingest')">relaxingest</li>
+                            </ul>
+                            <div class="practice-answer"><span class="check">✅</span> <strong>most relaxing</strong> - Superlativo de adjetivo longo: "most relaxing".</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Flashcard 11: Comparando com "as...as" -->
+        <div class="flashcard comparative" onclick="revealContent(this)">
+            <div class="flashcard-header">
+                <div class="left">
+                    <span class="emoji">⚖️</span>
+                    Comparando igualdade: "as...as"
+                </div>
+                <div class="play-group">
+                    <button class="play-btn us" onclick="playTTS(event, 'To say two things are equal, use as adjective as. For example: She is as tall as her brother.')">US 🔊</button>
+                    <button class="play-btn uk" onclick="playTTS(event, 'To say two things are equal, use as adjective as. For example: She is as tall as her brother.', 'uk')">UK 🔊</button>
+                </div>
+            </div>
+            <div class="content">
+                <div class="question">Como comparar igualdade em inglês?</div>
+                <div class="content">
+                    <div class="answer">
+                        <p>Use a estrutura: <span class="adjective">as + adjective + as</span></p>
+                        <p>Para dizer que duas coisas são iguais em alguma qualidade</p>
+                    </div>
+                    <div class="content">
+                        <div class="examples">
+                            <p><strong>Exemplos:</strong></p>
+                            <div class="example-item">
+                                "She is <span class="adjective">as tall as</span> her brother."
+                            </div>
+                            <div class="example-item">
+                                "This book is <span class="adjective">as interesting as</span> that one."
+                            </div>
+                            <div class="example-item">
+                                "My car is <span class="adjective">not as fast as</span> yours." (negação)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Flashcard 12: Vocabulário Avançado -->
+        <div class="flashcard irregular" onclick="revealContent(this)">
+            <div class="flashcard-header">
+                <div class="left">
+                    <span class="emoji">📊</span>
+                    Vocabulário Avançado
+                </div>
+            </div>
+            <div class="content">
+                <div class="question">Adjetivos úteis para comparações</div>
+                <div class="content">
+                    <div class="answer">
+                        <p><span class="adjective">Hardworking</span> <span class="ipa">/ˈhɑːrdˌwɜːrkɪŋ/</span> → trabalhador(a)</p>
+                        <p><span class="adjective">Reliable</span> <span class="ipa">/rɪˈlaɪəbl/</span> → confiável</p>
+                        <p><span class="adjective">Efficient</span> <span class="ipa">/ɪˈfɪʃnt/</span> → eficiente</p>
+                        <p><span class="adjective">Convenient</span> <span class="ipa">/kənˈviːniənt/</span> → conveniente</p>
+                        <p><span class="adjective">Significant</span> <span class="ipa">/sɪɡˈnɪfɪkənt/</span> → significativo</p>
+                    </div>
+                    <div class="content">
+                        <div class="examples">
+                            <p><strong>Frases úteis:</strong></p>
+                            <div class="example-item">
+                                "Sarah is <span class="adjective">more hardworking</span> than Emma."
+                            </div>
+                            <div class="example-item">
+                                "This method is <span class="adjective">less efficient</span> than the other one."
+                            </div>
+                            <div class="example-item">
+                                "Online shopping is <span class="adjective">more convenient</span> than going to the store."
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <footer>
+      Material educativo sobre Comparatives & Superlatives • Baseado nos modelos FLASHCARDS (2.0) e QUIZ (2.0)
+    </footer>
+
+    <script>
+        // Sistema de revelar conteúdo (do modelo Phrasal Verbs)
+        function revealContent(card) {
+            const contents = card.querySelectorAll('.content');
+            let foundActive = false;
+            
+            contents.forEach(content => {
+                if (!foundActive && !content.classList.contains('active')) {
+                    content.classList.add('active');
+                    foundActive = true;
+                } else if (foundActive) {
+                    content.classList.remove('active');
+                }
+            });
+            
+            // Reset if all are active
+            if (!foundActive) {
+                contents.forEach(content => {
+                    content.classList.remove('active');
+                });
+                if (!card.classList.contains('practice')) {
+                    contents[0].classList.add('active');
+                }
+            }
+        }
+        
+        // Sistema de respostas de prática
+        function toggleAnswer(button) {
+            const answer = button.nextElementSibling;
+            answer.classList.toggle('active');
+            event.stopPropagation();
+        }
+        
+        function checkAnswer(element, correctAnswer) {
+            const optionText = element.textContent.trim();
+            const isCorrect = optionText === correctAnswer;
+            
+            // Remove classes de resposta anterior
+            const parent = element.parentElement;
+            const options = parent.querySelectorAll('li');
+            options.forEach(opt => {
+                opt.classList.remove('correct', 'incorrect');
+            });
+            
+            // Marca a resposta selecionada
+            if (isCorrect) {
+                element.classList.add('correct');
+            } else {
+                element.classList.add('incorrect');
+                
+                // Marca a resposta correta se disponível
+                options.forEach(opt => {
+                    if (opt.textContent.trim() === correctAnswer) {
+                        opt.classList.add('correct');
+                    }
+                });
+            }
+            
+            // Mostra a resposta explicada
+            const answerElement = parent.nextElementSibling;
+            if (answerElement && answerElement.classList.contains('practice-answer')) {
+                answerElement.classList.add('active');
+            }
+            
+            event.stopPropagation();
+        }
+        
+        // Sistema de filtro por categoria
+        function filterCards(category) {
+            const cards = document.querySelectorAll('.flashcard');
+            
+            cards.forEach(card => {
+                if (category === 'all') {
+                    card.classList.remove('hidden');
+                } else if (card.classList.contains(category)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+        
+        // Sistema TTS (do FLASHCARDS 2.0)
+        const synth = window.speechSynthesis;
+        let voices = [];
+        
+        function loadVoices() {
+            voices = synth.getVoices();
+        }
+        
+        loadVoices();
+        
+        if (speechSynthesis.onvoiceschanged !== undefined) {
+            speechSynthesis.onvoiceschanged = loadVoices;
+        }
+        
+        function getVoice(region) {
+            if (!voices.length) loadVoices();
+            if (region === 'us') {
+                return voices.find(v => v.lang === 'en-US') || 
+                       voices.find(v => /US/i.test(v.name)) || 
+                       voices[0];
+            } else {
+                return voices.find(v => v.lang === 'en-GB') || 
+                       voices.find(v => /UK|British/i.test(v.name)) || 
+                       voices[0];
+            }
+        }
+        
+        function playTTS(event, text, region = 'us') {
+            event.stopPropagation();
+            synth.cancel();
+            
+            const rate = parseFloat(document.getElementById('voiceRate').value) || 1.0;
+            const utterance = new SpeechSynthesisUtterance(text);
+            const voice = getVoice(region);
+            
+            utterance.voice = voice;
+            utterance.lang = (region === 'us') ? 'en-US' : 'en-GB';
+            utterance.rate = rate;
+            
+            synth.speak(utterance);
+        }
+        
+        // Inicializar alguns cartões abertos
+        document.addEventListener('DOMContentLoaded', function() {
+            // Abre o primeiro cartão de cada categoria
+            const firstCards = document.querySelectorAll('.flashcard:nth-child(1), .flashcard:nth-child(2), .flashcard:nth-child(3)');
+            firstCards.forEach(card => {
+                const firstContent = card.querySelector('.content');
+                if (firstContent) firstContent.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
