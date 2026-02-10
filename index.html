@@ -368,6 +368,25 @@
             width: 180px;
         }
         
+        .audio-examples {
+            margin-top: 10px;
+            padding: 10px;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+        
+        .audio-examples .example-audio {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .example-text {
+            flex: 1;
+            font-size: 0.95rem;
+        }
+        
         footer {
             text-align: center;
             margin-top: 40px;
@@ -448,12 +467,33 @@
                                 <p><strong>Exemplos:</strong></p>
                                 <div class="example-item">
                                     "My car is <span class="adjective">faster</span> than yours."
+                                    <div class="audio-examples">
+                                        <div class="example-audio">
+                                            <span class="example-text">"My car is faster than yours."</span>
+                                            <button class="play-btn us" onclick="playTTS(event, 'My car is faster than yours.')">US 🔊</button>
+                                            <button class="play-btn uk" onclick="playTTS(event, 'My car is faster than yours.', 'uk')">UK 🔊</button>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="example-item">
                                     "This book is <span class="adjective">more interesting</span> than that one."
+                                    <div class="audio-examples">
+                                        <div class="example-audio">
+                                            <span class="example-text">"This book is more interesting than that one."</span>
+                                            <button class="play-btn us" onclick="playTTS(event, 'This book is more interesting than that one.')">US 🔊</button>
+                                            <button class="play-btn uk" onclick="playTTS(event, 'This book is more interesting than that one.', 'uk')">UK 🔊</button>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="example-item">
                                     "Today is <span class="adjective">sunnier</span> than yesterday."
+                                    <div class="audio-examples">
+                                        <div class="example-audio">
+                                            <span class="example-text">"Today is sunnier than yesterday."</span>
+                                            <button class="play-btn us" onclick="playTTS(event, 'Today is sunnier than yesterday.')">US 🔊</button>
+                                            <button class="play-btn uk" onclick="playTTS(event, 'Today is sunnier than yesterday.', 'uk')">UK 🔊</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -500,12 +540,33 @@
                                 <p><strong>Exemplos:</strong></p>
                                 <div class="example-item">
                                     "Mount Everest is <span class="adjective">the highest</span> mountain in the world."
+                                    <div class="audio-examples">
+                                        <div class="example-audio">
+                                            <span class="example-text">"Mount Everest is the highest mountain in the world."</span>
+                                            <button class="play-btn us" onclick="playTTS(event, 'Mount Everest is the highest mountain in the world.')">US 🔊</button>
+                                            <button class="play-btn uk" onclick="playTTS(event, 'Mount Everest is the highest mountain in the world.', 'uk')">UK 🔊</button>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="example-item">
                                     "This is <span class="adjective">the most expensive</span> restaurant in town."
+                                    <div class="audio-examples">
+                                        <div class="example-audio">
+                                            <span class="example-text">"This is the most expensive restaurant in town."</span>
+                                            <button class="play-btn us" onclick="playTTS(event, 'This is the most expensive restaurant in town.')">US 🔊</button>
+                                            <button class="play-btn uk" onclick="playTTS(event, 'This is the most expensive restaurant in town.', 'uk')">UK 🔊</button>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="example-item">
                                     "She is <span class="adjective">the funniest</span> person I know."
+                                    <div class="audio-examples">
+                                        <div class="example-audio">
+                                            <span class="example-text">"She is the funniest person I know."</span>
+                                            <button class="play-btn us" onclick="playTTS(event, 'She is the funniest person I know.')">US 🔊</button>
+                                            <button class="play-btn uk" onclick="playTTS(event, 'She is the funniest person I know.', 'uk')">UK 🔊</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -551,12 +612,33 @@
                                 <p><strong>Exemplos:</strong></p>
                                 <div class="example-item">
                                     "Your idea is <span class="adjective">better</span> than mine."
+                                    <div class="audio-examples">
+                                        <div class="example-audio">
+                                            <span class="example-text">"Your idea is better than mine."</span>
+                                            <button class="play-btn us" onclick="playTTS(event, 'Your idea is better than mine.')">US 🔊</button>
+                                            <button class="play-btn uk" onclick="playTTS(event, 'Your idea is better than mine.', 'uk')">UK 🔊</button>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="example-item">
                                     "This is <span class="adjective">the worst</span> movie I've ever seen."
+                                    <div class="audio-examples">
+                                        <div class="example-audio">
+                                            <span class="example-text">"This is the worst movie I've ever seen."</span>
+                                            <button class="play-btn us" onclick="playTTS(event, 'This is the worst movie I have ever seen.')">US 🔊</button>
+                                            <button class="play-btn uk" onclick="playTTS(event, 'This is the worst movie I have ever seen.', 'uk')">UK 🔊</button>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="example-item">
                                     "We need <span class="adjective">further</span> information to decide."
+                                    <div class="audio-examples">
+                                        <div class="example-audio">
+                                            <span class="example-text">"We need further information to decide."</span>
+                                            <button class="play-btn us" onclick="playTTS(event, 'We need further information to decide.')">US 🔊</button>
+                                            <button class="play-btn uk" onclick="playTTS(event, 'We need further information to decide.', 'uk')">UK 🔊</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -585,6 +667,13 @@
                         <div class="explanation">Usamos "taller than" para comparar altura entre duas pessoas.</div>
                         <div class="content">
                             <div class="follow">Follow-up: Há muita diferença de altura entre vocês?</div>
+                            <div class="audio-examples">
+                                <div class="example-audio">
+                                    <span class="example-text">"I am taller than my best friend."</span>
+                                    <button class="play-btn us" onclick="playTTS(event, 'I am taller than my best friend.')">US 🔊</button>
+                                    <button class="play-btn uk" onclick="playTTS(event, 'I am taller than my best friend.', 'uk')">UK 🔊</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -611,6 +700,13 @@
                         <div class="explanation">Use "the + -est" para o superlativo quando comparamos três ou mais pessoas/coisas.</div>
                         <div class="content">
                             <div class="follow">Follow-up: Qual é a altura dele?</div>
+                            <div class="audio-examples">
+                                <div class="example-audio">
+                                    <span class="example-text">"My brother is the tallest person in my family."</span>
+                                    <button class="play-btn us" onclick="playTTS(event, 'My brother is the tallest person in my family.')">US 🔊</button>
+                                    <button class="play-btn uk" onclick="playTTS(event, 'My brother is the tallest person in my family.', 'uk')">UK 🔊</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -623,6 +719,10 @@
                 <div class="left">
                     <span class="emoji">💡</span>
                     Dicas e Exceções
+                </div>
+                <div class="play-group">
+                    <button class="play-btn us" onclick="playTTS(event, 'Tips and exceptions for comparative and superlative adjectives. Two-syllable adjectives can sometimes use both forms. Use as...as to compare equality.')">US 🔊</button>
+                    <button class="play-btn uk" onclick="playTTS(event, 'Tips and exceptions for comparative and superlative adjectives. Two-syllable adjectives can sometimes use both forms. Use as...as to compare equality.', 'uk')">UK 🔊</button>
                 </div>
             </div>
             <div class="content">
@@ -640,6 +740,18 @@
                         
                         <p><strong>4. Pronúncia:</strong> Preste atenção na pronúncia do "-er" e "-est"</p>
                         <p><span class="adjective">long /lɒŋ/ → longer /ˈlɒŋɡər/ → longest /ˈlɒŋɡɪst/</span></p>
+                    </div>
+                    <div class="audio-examples">
+                        <div class="example-audio">
+                            <span class="example-text">"She is as tall as her sister."</span>
+                            <button class="play-btn us" onclick="playTTS(event, 'She is as tall as her sister.')">US 🔊</button>
+                            <button class="play-btn uk" onclick="playTTS(event, 'She is as tall as her sister.', 'uk')">UK 🔊</button>
+                        </div>
+                        <div class="example-audio">
+                            <span class="example-text">"This coffee is not as hot as I expected."</span>
+                            <button class="play-btn us" onclick="playTTS(event, 'This coffee is not as hot as I expected.')">US 🔊</button>
+                            <button class="play-btn uk" onclick="playTTS(event, 'This coffee is not as hot as I expected.', 'uk')">UK 🔊</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -663,6 +775,13 @@
                                 <li onclick="checkAnswer(this, 'big')">big</li>
                             </ul>
                             <div class="practice-answer"><span class="check">✅</span> <strong>bigger</strong> - Comparativo de "big": maior.</div>
+                            <div class="audio-examples">
+                                <div class="example-audio">
+                                    <span class="example-text">"My house is bigger than yours."</span>
+                                    <button class="play-btn us" onclick="playTTS(event, 'My house is bigger than yours.')">US 🔊</button>
+                                    <button class="play-btn uk" onclick="playTTS(event, 'My house is bigger than yours.', 'uk')">UK 🔊</button>
+                                </div>
+                            </div>
                         </div>
                         <div class="practice-item">
                             <div class="practice-question">2. "This is the ____ movie I have ever seen."</div>
@@ -672,6 +791,13 @@
                                 <li onclick="checkAnswer(this, 'good')">good</li>
                             </ul>
                             <div class="practice-answer"><span class="check">✅</span> <strong>best</strong> - Superlativo irregular de "good": o melhor.</div>
+                            <div class="audio-examples">
+                                <div class="example-audio">
+                                    <span class="example-text">"This is the best movie I have ever seen."</span>
+                                    <button class="play-btn us" onclick="playTTS(event, 'This is the best movie I have ever seen.')">US 🔊</button>
+                                    <button class="play-btn uk" onclick="playTTS(event, 'This is the best movie I have ever seen.', 'uk')">UK 🔊</button>
+                                </div>
+                            </div>
                         </div>
                         <div class="practice-item">
                             <div class="practice-question">3. "She is ____ than her sister."</div>
@@ -681,6 +807,13 @@
                                 <li onclick="checkAnswer(this, 'tall')">tall</li>
                             </ul>
                             <div class="practice-answer"><span class="check">✅</span> <strong>taller</strong> - Comparativo de "tall": mais alta.</div>
+                            <div class="audio-examples">
+                                <div class="example-audio">
+                                    <span class="example-text">"She is taller than her sister."</span>
+                                    <button class="play-btn us" onclick="playTTS(event, 'She is taller than her sister.')">US 🔊</button>
+                                    <button class="play-btn uk" onclick="playTTS(event, 'She is taller than her sister.', 'uk')">UK 🔊</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -701,16 +834,37 @@
                             <div class="practice-question">1. "Today is ____ (cold) than yesterday."</div>
                             <button class="show-answer" onclick="toggleAnswer(this)">Mostrar Resposta</button>
                             <div class="practice-answer"><span class="check">✅</span> <strong>colder</strong> - "Today is colder than yesterday."</div>
+                            <div class="audio-examples">
+                                <div class="example-audio">
+                                    <span class="example-text">"Today is colder than yesterday."</span>
+                                    <button class="play-btn us" onclick="playTTS(event, 'Today is colder than yesterday.')">US 🔊</button>
+                                    <button class="play-btn uk" onclick="playTTS(event, 'Today is colder than yesterday.', 'uk')">UK 🔊</button>
+                                </div>
+                            </div>
                         </div>
                         <div class="practice-item">
                             <div class="practice-question">2. "He is the ____ (strong) player in the team."</div>
                             <button class="show-answer" onclick="toggleAnswer(this)">Mostrar Resposta</button>
                             <div class="practice-answer"><span class="check">✅</span> <strong>strongest</strong> - "He is the strongest player in the team."</div>
+                            <div class="audio-examples">
+                                <div class="example-audio">
+                                    <span class="example-text">"He is the strongest player in the team."</span>
+                                    <button class="play-btn us" onclick="playTTS(event, 'He is the strongest player in the team.')">US 🔊</button>
+                                    <button class="play-btn uk" onclick="playTTS(event, 'He is the strongest player in the team.', 'uk')">UK 🔊</button>
+                                </div>
+                            </div>
                         </div>
                         <div class="practice-item">
                             <div class="practice-question">3. "This exam is ____ (easy) than the last one."</div>
                             <button class="show-answer" onclick="toggleAnswer(this)">Mostrar Resposta</button>
                             <div class="practice-answer"><span class="check">✅</span> <strong>easier</strong> - "This exam is easier than the last one."</div>
+                            <div class="audio-examples">
+                                <div class="example-audio">
+                                    <span class="example-text">"This exam is easier than the last one."</span>
+                                    <button class="play-btn us" onclick="playTTS(event, 'This exam is easier than the last one.')">US 🔊</button>
+                                    <button class="play-btn uk" onclick="playTTS(event, 'This exam is easier than the last one.', 'uk')">UK 🔊</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -731,16 +885,37 @@
                             <div class="practice-question">1. "Londres é maior do que Paris."</div>
                             <button class="show-answer" onclick="toggleAnswer(this)">Mostrar Resposta</button>
                             <div class="practice-answer"><span class="check">✅</span> "London is <strong>bigger than</strong> Paris."</div>
+                            <div class="audio-examples">
+                                <div class="example-audio">
+                                    <span class="example-text">"London is bigger than Paris."</span>
+                                    <button class="play-btn us" onclick="playTTS(event, 'London is bigger than Paris.')">US 🔊</button>
+                                    <button class="play-btn uk" onclick="playTTS(event, 'London is bigger than Paris.', 'uk')">UK 🔊</button>
+                                </div>
+                            </div>
                         </div>
                         <div class="practice-item">
                             <div class="practice-question">2. "Esta é a pessoa mais famosa do meu país."</div>
                             <button class="show-answer" onclick="toggleAnswer(this)">Mostrar Resposta</button>
                             <div class="practice-answer"><span class="check">✅</span> "This is <strong>the most famous</strong> person in my country."</div>
+                            <div class="audio-examples">
+                                <div class="example-audio">
+                                    <span class="example-text">"This is the most famous person in my country."</span>
+                                    <button class="play-btn us" onclick="playTTS(event, 'This is the most famous person in my country.')">US 🔊</button>
+                                    <button class="play-btn uk" onclick="playTTS(event, 'This is the most famous person in my country.', 'uk')">UK 🔊</button>
+                                </div>
+                            </div>
                         </div>
                         <div class="practice-item">
                             <div class="practice-question">3. "O ouro é mais caro do que a prata."</div>
                             <button class="show-answer" onclick="toggleAnswer(this)">Mostrar Resposta</button>
                             <div class="practice-answer"><span class="check">✅</span> "Gold is <strong>more expensive than</strong> silver."</div>
+                            <div class="audio-examples">
+                                <div class="example-audio">
+                                    <span class="example-text">"Gold is more expensive than silver."</span>
+                                    <button class="play-btn us" onclick="playTTS(event, 'Gold is more expensive than silver.')">US 🔊</button>
+                                    <button class="play-btn uk" onclick="playTTS(event, 'Gold is more expensive than silver.', 'uk')">UK 🔊</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -766,6 +941,18 @@
                                 <li onclick="checkAnswer(this, 'both a and b')">ambos A e B</li>
                             </ul>
                             <div class="practice-answer"><span class="check">✅</span> <strong>ambos A e B</strong> - "friendlier" e "more friendly" são ambos corretos.</div>
+                            <div class="audio-examples">
+                                <div class="example-audio">
+                                    <span class="example-text">"My dog is friendlier than my cat."</span>
+                                    <button class="play-btn us" onclick="playTTS(event, 'My dog is friendlier than my cat.')">US 🔊</button>
+                                    <button class="play-btn uk" onclick="playTTS(event, 'My dog is friendlier than my cat.', 'uk')">UK 🔊</button>
+                                </div>
+                                <div class="example-audio">
+                                    <span class="example-text">"My dog is more friendly than my cat."</span>
+                                    <button class="play-btn us" onclick="playTTS(event, 'My dog is more friendly than my cat.')">US 🔊</button>
+                                    <button class="play-btn uk" onclick="playTTS(event, 'My dog is more friendly than my cat.', 'uk')">UK 🔊</button>
+                                </div>
+                            </div>
                         </div>
                         <div class="practice-item">
                             <div class="practice-question">2. "She has a ____ smile." (bonito)</div>
@@ -775,6 +962,13 @@
                                 <li onclick="checkAnswer(this, 'most beautiful')">most beautiful</li>
                             </ul>
                             <div class="practice-answer"><span class="check">✅</span> <strong>beautiful</strong> - Não há comparação, então use a forma básica.</div>
+                            <div class="audio-examples">
+                                <div class="example-audio">
+                                    <span class="example-text">"She has a beautiful smile."</span>
+                                    <button class="play-btn us" onclick="playTTS(event, 'She has a beautiful smile.')">US 🔊</button>
+                                    <button class="play-btn uk" onclick="playTTS(event, 'She has a beautiful smile.', 'uk')">UK 🔊</button>
+                                </div>
+                            </div>
                         </div>
                         <div class="practice-item">
                             <div class="practice-question">3. "This was the ____ holiday we ever had." (relaxante)</div>
@@ -784,6 +978,13 @@
                                 <li onclick="checkAnswer(this, 'relaxingest')">relaxingest</li>
                             </ul>
                             <div class="practice-answer"><span class="check">✅</span> <strong>most relaxing</strong> - Superlativo de adjetivo longo: "most relaxing".</div>
+                            <div class="audio-examples">
+                                <div class="example-audio">
+                                    <span class="example-text">"This was the most relaxing holiday we ever had."</span>
+                                    <button class="play-btn us" onclick="playTTS(event, 'This was the most relaxing holiday we ever had.')">US 🔊</button>
+                                    <button class="play-btn uk" onclick="playTTS(event, 'This was the most relaxing holiday we ever had.', 'uk')">UK 🔊</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -814,12 +1015,33 @@
                             <p><strong>Exemplos:</strong></p>
                             <div class="example-item">
                                 "She is <span class="adjective">as tall as</span> her brother."
+                                <div class="audio-examples">
+                                    <div class="example-audio">
+                                        <span class="example-text">"She is as tall as her brother."</span>
+                                        <button class="play-btn us" onclick="playTTS(event, 'She is as tall as her brother.')">US 🔊</button>
+                                        <button class="play-btn uk" onclick="playTTS(event, 'She is as tall as her brother.', 'uk')">UK 🔊</button>
+                                    </div>
+                                </div>
                             </div>
                             <div class="example-item">
                                 "This book is <span class="adjective">as interesting as</span> that one."
+                                <div class="audio-examples">
+                                    <div class="example-audio">
+                                        <span class="example-text">"This book is as interesting as that one."</span>
+                                        <button class="play-btn us" onclick="playTTS(event, 'This book is as interesting as that one.')">US 🔊</button>
+                                        <button class="play-btn uk" onclick="playTTS(event, 'This book is as interesting as that one.', 'uk')">UK 🔊</button>
+                                    </div>
+                                </div>
                             </div>
                             <div class="example-item">
                                 "My car is <span class="adjective">not as fast as</span> yours." (negação)
+                                <div class="audio-examples">
+                                    <div class="example-audio">
+                                        <span class="example-text">"My car is not as fast as yours."</span>
+                                        <button class="play-btn us" onclick="playTTS(event, 'My car is not as fast as yours.')">US 🔊</button>
+                                        <button class="play-btn uk" onclick="playTTS(event, 'My car is not as fast as yours.', 'uk')">UK 🔊</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -833,6 +1055,10 @@
                 <div class="left">
                     <span class="emoji">📊</span>
                     Vocabulário Avançado
+                </div>
+                <div class="play-group">
+                    <button class="play-btn us" onclick="playTTS(event, 'Advanced vocabulary for comparisons. Hardworking, reliable, efficient, convenient, significant.')">US 🔊</button>
+                    <button class="play-btn uk" onclick="playTTS(event, 'Advanced vocabulary for comparisons. Hardworking, reliable, efficient, convenient, significant.', 'uk')">UK 🔊</button>
                 </div>
             </div>
             <div class="content">
@@ -850,12 +1076,33 @@
                             <p><strong>Frases úteis:</strong></p>
                             <div class="example-item">
                                 "Sarah is <span class="adjective">more hardworking</span> than Emma."
+                                <div class="audio-examples">
+                                    <div class="example-audio">
+                                        <span class="example-text">"Sarah is more hardworking than Emma."</span>
+                                        <button class="play-btn us" onclick="playTTS(event, 'Sarah is more hardworking than Emma.')">US 🔊</button>
+                                        <button class="play-btn uk" onclick="playTTS(event, 'Sarah is more hardworking than Emma.', 'uk')">UK 🔊</button>
+                                    </div>
+                                </div>
                             </div>
                             <div class="example-item">
                                 "This method is <span class="adjective">less efficient</span> than the other one."
+                                <div class="audio-examples">
+                                    <div class="example-audio">
+                                        <span class="example-text">"This method is less efficient than the other one."</span>
+                                        <button class="play-btn us" onclick="playTTS(event, 'This method is less efficient than the other one.')">US 🔊</button>
+                                        <button class="play-btn uk" onclick="playTTS(event, 'This method is less efficient than the other one.', 'uk')">UK 🔊</button>
+                                    </div>
+                                </div>
                             </div>
                             <div class="example-item">
                                 "Online shopping is <span class="adjective">more convenient</span> than going to the store."
+                                <div class="audio-examples">
+                                    <div class="example-audio">
+                                        <span class="example-text">"Online shopping is more convenient than going to the store."</span>
+                                        <button class="play-btn us" onclick="playTTS(event, 'Online shopping is more convenient than going to the store.')">US 🔊</button>
+                                        <button class="play-btn uk" onclick="playTTS(event, 'Online shopping is more convenient than going to the store.', 'uk')">UK 🔊</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -866,7 +1113,7 @@
     </div>
 
     <footer>
-       Material criado para estudo — Edson D'Aguiar<br>
+      Material criado para estudo — Edson D'Aguiar<br>
       <span class="copyright">© @InglêsFácilGratuito</span>
     </footer>
 
@@ -1005,5 +1252,4 @@
         });
     </script>
 </body>
-
 </html>
